@@ -6,7 +6,7 @@ def test_manual_save_json_in_user_folder():
     """
     Validamos si extrae bien lso datos de PDF
     """
-    with open("muestras/factura3.pdf","rb") as f:
+    with open("muestras/factura3.pdf", "rb") as f:
         contenido = f.read()
         doc = DocumentFile.from_pdf(contenido)
 
