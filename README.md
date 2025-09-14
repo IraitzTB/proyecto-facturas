@@ -30,6 +30,8 @@ Podemos crear el entorno con todas las dependencias también.
 uv sync --all-groups
 ```
 
+Deberán pasarse los test unitarios antes de poder subir el código `uv run pytest`.
+
 ### Paquete base
 
 El proyecto construye un paquete base llamado `facturas`. Este paquete contiene las funcionalidades base.

@@ -1,0 +1,20 @@
+repos:
+    # Actualizamos dependencias y export
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.8.17
+    hooks:
+      - id: uv-lock
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.8.17
+    hooks:
+      - id: uv-export
+    # Validamos tests
+  - repo: local
+    hooks:
+      - id: pytest-check
+        name: pytest-check
+        entry: ./.venv/bin/pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+   
