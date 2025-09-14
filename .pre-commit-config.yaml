@@ -8,6 +8,7 @@ repos:
     rev: 0.8.17
     hooks:
       - id: uv-export
+        args: ["--frozen", "--no-hashes", "--output-file=requirements.txt", "--quiet"]
     # Validamos tests
   - repo: local
     hooks:
