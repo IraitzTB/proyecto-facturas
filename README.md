@@ -1,6 +1,6 @@
 # Proyecto facturas
 
-Aplicación de lectura de facturas. La plataforma está formada por un sistema de almacenamiento flexible (Minio) y una base de datos documental (MongoDB).
+Aplicación de lectura de facturas. La plataforma está formada por un sistema de almacenamiento flexible (MinioIO) y una base de datos documental (MongoDB).
 
 ## Plataforma
 
