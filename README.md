@@ -10,6 +10,10 @@ Para poder desarrollar puede levantarse la plataforma mediante `docker compose u
 * El acceso a localhost:9001 para minio
 * El acceso a mongoDB express en localhost:8081 (admin:pass) para a gestión de las colecciones
 
+Se debe copiar el fichero `.env.example` con las variables de entorno locales.
+
+![](assets/arquitectura.png)
+
 ## Desarrollo
 
 Existen dos grupos de dependencias adicionales que nos permiten realizar las demos de Streamlit.
