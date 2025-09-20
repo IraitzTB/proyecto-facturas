@@ -1,6 +1,6 @@
 # Proyecto facturas
 
-Aplicación de lectura de facturas. La plataforma está formada por un sistema de almacenamiento flexible (Minio) y una base de datos documental (MongoDB).
+Aplicación de lectura de facturas. La plataforma está formada por un sistema de almacenamiento flexible (MinIO) y una base de datos documental (MongoDB).
 
 ## Plataforma
 
@@ -9,6 +9,12 @@ Para poder desarrollar puede levantarse la plataforma mediante `docker compose u
 * La creación de un bucket `invoice`
 * El acceso a localhost:9001 para minio
 * El acceso a mongoDB express en localhost:8081 (admin:pass) para a gestión de las colecciones
+
+Se debe copiar el fichero `.env.example` con las variables de entorno locales.
+
+![](assets/arquitectura.png)
+
+También hará falta disponer de un agente de extracción en LLama Cloud: https://cloud.llamaindex.ai/. Con el token de conexión a la API y el nombre del agente la aplicación se encarga de invocar el proceso de extracción de datos.
 
 ## Desarrollo
 
@@ -35,7 +41,6 @@ Deberán pasarse los test unitarios antes de poder subir el código `uv run pyte
 ### Paquete base
 
 El proyecto construye un paquete base llamado `facturas`. Este paquete contiene las funcionalidades base.
-
 
 ### Aplicación
 
