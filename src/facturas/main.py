@@ -17,7 +17,7 @@ def parse_invoice(file, file_name:str):
     """
     # Instanciamos el agente creado en Llama Cloud
     llama_extract = LlamaExtract()
-    agent = llama_extract.get_agent(name=os.environ["LLAMA_CLOUD_AGENTs"])
+    agent = llama_extract.get_agent(name=os.environ["LLAMA_CLOUD_AGENT"])
 
     source_text = SourceText(file=file, filename=file_name)
     result = agent.extract(source_text)
