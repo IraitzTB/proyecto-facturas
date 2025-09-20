@@ -1,7 +1,7 @@
 import os
 import s3fs
-import json
-from doctr.models import ocr_predictor
+from llama_cloud_services import LlamaExtract, SourceText
+# from doctr.models import ocr_predictor
 
 
 def store_json(json, userid):
@@ -11,14 +11,18 @@ def store_json(json, userid):
     raise NotImplementedError
 
 
-def parse_invoice(file):
+def parse_invoice(file, file_name:str):
     """
     Dada una factura extrae el contenido.
     """
-    model = ocr_predictor("db_resnet50", "crnn_vgg16_bn", pretrained=True)
-    result = model(file)
-    json_output = result.export()
-    return result, json_output
+    # Instanciamos el agente creado en Llama Cloud
+    llama_extract = LlamaExtract()
+    agent = llama_extract.get_agent(name=os.environ["LLAMA_CLOUD_AGENTs"])
+
+    source_text = SourceText(file=file, filename=file_name)
+    result = agent.extract(source_text)
+
+    return result
 
 
 def check_folder(userid: str):

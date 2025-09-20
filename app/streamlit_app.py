@@ -3,8 +3,6 @@ import streamlit_authenticator as stauth
 
 from facturas import parse_invoice, check_folder, save_invoice_for_user, store_json
 
-from doctr.io import DocumentFile
-
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv(), override=True)
@@ -35,8 +33,8 @@ if st.session_state.get("authentication_status"):
 
     # Upload flow (protected)
     uploaded_file = st.file_uploader(
-        "Upload an invoice (PDF, image, etc.)",
-        type=["pdf", "jpg", "jpeg", "png"],
+        "Upload an invoice (PDF)",
+        type=["pdf"],
     )
 
     if uploaded_file is not None:
@@ -44,14 +42,13 @@ if st.session_state.get("authentication_status"):
         save_path = save_invoice_for_user(uploaded_file, st.session_state.username)
         if uploaded_file.type == "application/pdf":
             pdf = uploaded_file.read()
-            single_img_doc = DocumentFile.from_pdf(pdf)
+
+            result = parse_invoice(pdf, uploaded_file.name)
+            # store_json(json_output, st.session_state.username)
+            st.success(f"Invoice parsed and saved to {save_path}")
+            st.json(result.data)
         else:
-            image = uploaded_file.read()
-            single_img_doc = DocumentFile.from_images(image)
-        result, json_output = parse_invoice(single_img_doc)
-        # store_json(json_output, st.session_state.username)
-        st.success(f"Invoice parsed and saved to {save_path}")
-        st.json(json_output)
+            st.write("Not implemented yet")
 
 elif st.session_state.get("authentication_status") is False:
     st.error("Username/password is incorrect")

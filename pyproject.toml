@@ -5,7 +5,8 @@ description = "Proyecto sencillo que registra información de facturas"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "python-doctr[torch]>=1.0.0",
+    "llama-cloud>=0.1.42",
+    "llama-cloud-services>=0.6.68",
     "s3fs>=2025.9.0",
 ]
 
