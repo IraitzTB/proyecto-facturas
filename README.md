@@ -14,6 +14,8 @@ Se debe copiar el fichero `.env.example` con las variables de entorno locales.
 
 ![](assets/arquitectura.png)
 
+También hará falta disponer de un agente de extracción en LLama Cloud: https://cloud.llamaindex.ai/. Con el token de conexión a la API y el nombre del agente la aplicación se encarga de invocar el proceso de extracción de datos.
+
 ## Desarrollo
 
 Existen dos grupos de dependencias adicionales que nos permiten realizar las demos de Streamlit.
@@ -39,7 +41,6 @@ Deberán pasarse los test unitarios antes de poder subir el código `uv run pyte
 ### Paquete base
 
 El proyecto construye un paquete base llamado `facturas`. Este paquete contiene las funcionalidades base.
-
 
 ### Aplicación
 
